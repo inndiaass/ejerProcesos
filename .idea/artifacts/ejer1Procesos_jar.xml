@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ejer1Procesos:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ejer1Procesos_jar</output-path>
+    <root id="archive" name="ejer1Procesos.jar">
+      <element id="module-output" name="ejer1Procesos" />
+    </root>
+  </artifact>
+</component>
