@@ -18,7 +18,7 @@ import java.util.Scanner;
                 case "+" -> res = num1 + num2;
                 case "-" -> res = num1 - num2;
                 case "/" -> res = num1 / num2;
-                case "%" -> res = num1 % num2;
+                case "*" -> res = num1 * num2;
 
             }
             System.out.println("el resultado es "+res);
