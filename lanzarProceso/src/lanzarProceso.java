@@ -21,31 +21,24 @@ public class lanzarProceso {
 
             Process proceso = pb.start();
 
-            try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(proceso.getOutputStream()))) {
-                writer.write(numero1 + "\n");
-                writer.write(numero2 + "\n");
-                writer.write(operando + "\n");
-                writer.flush();
+            try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(proceso.getOutputStream()))) {
+                bw.write(numero1 + "\n");
+                bw.write(numero2 + "\n");
+                bw.write(operando + "\n");
+
             }
 
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(proceso.getInputStream()))) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(proceso.getInputStream()))) {
                 String linea;
-                while ((linea = reader.readLine()) != null) {
+                while ((linea = br.readLine()) != null) {
                     System.out.println("Salida del proceso: " + linea);
                 }
             }
 
-            try (BufferedReader errorReader = new BufferedReader(new InputStreamReader(proceso.getErrorStream()))) {
-                String linea;
-                while ((linea = errorReader.readLine()) != null) {
-                    System.err.println("Error del proceso: " + linea);
-                }
-            }
 
-            int exitCode = proceso.waitFor();
-            System.out.println("El proceso terminó con el código: " + exitCode);
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+
+        } catch (IOException e) {
+            System.out.println("error");
         }
     }
 }
